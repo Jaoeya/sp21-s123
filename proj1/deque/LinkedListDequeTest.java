@@ -116,13 +116,15 @@ public class LinkedListDequeTest {
             lld1.addLast(i);
         }
 
+        System.out.println(lld1.get(20));
+
         for (double i = 0; i < 500000; i++) {
             //assertEquals("Should have the same value", i, (double) lld1.removeFirst(), 0.0);
             lld1.removeFirst();
         }
 
         for (double i = 999999; i > 500000; i--) {
-           // assertEquals("Should have the same value", i, (double) lld1.removeLast(), 0.0);
+            // assertEquals("Should have the same value", i, (double) lld1.removeLast(), 0.0);
             lld1.removeLast();
         }
 
