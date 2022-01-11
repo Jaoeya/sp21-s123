@@ -1,6 +1,7 @@
 package gitlet;
 
 import static gitlet.MyUtils.*;
+
 /**
  * Driver class for Gitlet, a subset of the Git version-control system.
  *
@@ -21,24 +22,25 @@ public class Main {
         String firstArg = args[0];
         switch (firstArg) {
             case "init":
-                // TODO: handle the `init` command
+                validationCommand(args, 1);
                 Repository.init();
-                Repository.setup();
+
                 break;
             case "add":
-                // TODO: handle the `add [filename]` command
+                validationCommand(args, 2);
                 Repository.checkInit();
                 String fileName = args[1];
-                validationCommand(args, 2);
-                Repository.add(fileName);
+                new Repository().add(fileName);
                 break;
-            // TODO: FILL THE REST IN
             case "status":
+                validationCommand(args, 1);
                 Repository.checkInit();
-                Repository.showStatus();
+                new Repository().showStatus();
                 break;
             case "log":
+                validationCommand(args, 1);
                 Repository.checkInit();
+                new Repository().log();
                 break;
 
             case "commit":
@@ -58,9 +60,9 @@ public class Main {
 
     }
 
-    /*
-     *@param args input string
-     *@param n Expected number of String
+    /**
+     * @param args
+     * @param n
      */
 
     private static void validationCommand(String[] args, int n) {

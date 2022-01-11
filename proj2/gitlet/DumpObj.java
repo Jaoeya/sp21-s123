@@ -38,6 +38,12 @@ public class DumpObj {
             obj.dump();
             System.out.println("---");
         }
+
+        File[] files1 = Repository.CWD.listFiles();
+        for(File file: files1){
+            System.out.println(file);
+        }
+
     }
 }
 
